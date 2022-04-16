@@ -21,19 +21,21 @@ container = database.create_container_if_not_exists(
 app = flask.Flask(__name__)
 app.config['DEBUG'] = True
 
-@app.route('/cars/', methods = ['GET'])
-def get_all():
-    return jsonify()
-
-@app.route('/car')
+@app.route('/car', methods=['GET'])
 def get_id():
     if 'id' in request.args:
         if 'state' in request.args:
             id = request.args['id']
             state = request.args['state']
-            item_response = container.read_item(item=id, partition_key=state)
-            request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
-            print(item_response['id'])
+            query = "SELECT * FROM c WHERE c.id='" + str(id) + "' AND c.state='" + str(state) + "'"
+            print(query)
+            items = container.query_items(query=query)
+            item_list = []
+            for item in items:
+                item_list.append(item)
+            return jsonify(item_list)
+        else:
+            return 'Error. No state field provided.'
     else:
         return "Error. No id field provided."
 

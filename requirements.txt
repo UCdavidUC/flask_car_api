@@ -1,0 +1,4 @@
+flask
+python-dotenv
+python-decouple
+azure-cosmos
