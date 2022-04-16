@@ -10,4 +10,4 @@ COPY . /app
 
 ENTRYPOINT [ "python3" ]
 
-CMD [ "api.py" ]
+CMD [ "app.py" ]
