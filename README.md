@@ -11,13 +11,11 @@ source env/bin/activate
 On Windows:
 ```
 virtualenv env
-source env/bin/activate
+.(env/bin/activate
 ```
 2. Install the required Python libraries
 ```
-pip install flask
-pip install python-dotenv
-pip install python-decouple
+pip install -r requirements.txt
 ```
 3. Run the API using the following command:
 ```
