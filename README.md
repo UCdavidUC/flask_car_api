@@ -1,6 +1,6 @@
 # Flask API
 
-## Local environment setup
+## Local environment setup
 
 1. Create a python virtual environment
 On Linux and Mac OS:
@@ -11,7 +11,7 @@ source env/bin/activate
 On Windows:
 ```
 virtualenv env
-.(env/bin/activate
+./env/bin/activate
 ```
 2. Install the required Python libraries
 ```
